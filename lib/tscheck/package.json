@@ -1,0 +1,51 @@
+{
+  "name": "tscheck",
+  "version": "0.1.4",
+  "dependencies": {
+    "sugar": "",
+    "commander": "",
+    "esprima": "~1.0.4",
+    "jsnap": "0.1.2"
+  },
+  "files": [
+    "lib",
+    "tscheck.js",
+    "tscore.js"
+  ],
+  "bin": {
+    "tscheck": "tscheck.js"
+  },
+  "description": "Find bugs in hand-written TypeScript type definitions.",
+  "homepage": "http://github.com/asgerf/tscheck",
+  "author": {
+    "name": "Asger Feldthaus",
+    "email": "asf@cs.au.dk"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/asgerf/tscheck"
+  },
+  "bugs": {
+    "url": "https://github.com/asgerf/tscheck/issues"
+  },
+  "_id": "tscheck@0.1.4",
+  "dist": {
+    "shasum": "f2d38f8658d9d70ea73add4a4d06dcc0a5f9ed93",
+    "tarball": "http://registry.npmjs.org/tscheck/-/tscheck-0.1.4.tgz"
+  },
+  "_from": "tscheck@*",
+  "_npmVersion": "1.4.3",
+  "_npmUser": {
+    "name": "asgerf",
+    "email": "asger.feldthaus@gmail.com"
+  },
+  "maintainers": [
+    {
+      "name": "asgerf",
+      "email": "asger.feldthaus@gmail.com"
+    }
+  ],
+  "directories": {},
+  "_shasum": "f2d38f8658d9d70ea73add4a4d06dcc0a5f9ed93",
+  "_resolved": "https://registry.npmjs.org/tscheck/-/tscheck-0.1.4.tgz"
+}

@@ -1,0 +1,11 @@
+{
+  "name": "tpd",
+  "version": "0.0.1",
+  "dependencies": {
+    "fs": "",
+    "commander": "",
+    "chai": "",
+    "js-beautify": "^1.5.1",
+    "harmony-reflect": ""
+  }
+}
