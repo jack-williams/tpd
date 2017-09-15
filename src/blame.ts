@@ -219,10 +219,10 @@ class BoundTypeVariable extends TypeVariable {
     };
 
     // Wrap the value in an object so all values can be sealed.
-    var sealed = new Proxy({v : value}, {
+    var sealed = new Proxy({}, {
       get: function (target: any, name: string, receiver: any): any {
         p.seal().blame("Access to sealed parameter not permitted " + name);
-        if (name === "v") {
+        if (name === "###v") {
           return value; // Help in debugging.
         }
         if (name === "valueOf") {
@@ -243,6 +243,42 @@ class BoundTypeVariable extends TypeVariable {
       apply: function (target: any, thisValue: any, args: any[]): any {
         p.seal().blame("Applying a sealed parameter not permitted");
         return Reflect.apply(value,thisValue,args);
+      },
+      ownKeys: function(target) {
+        p.seal().blame("Access to sealed parameter not permitted");
+        return Reflect.ownKeys(value);
+      },
+      construct: function(target, argumentsList, newTarget) {
+        p.seal().blame("Access to sealed parameter not permitted");
+        return Reflect.construct(target, argumentsList, newTarget);
+      },
+      defineProperty: function(target, property, descriptor) {
+        p.seal().blame("Access to sealed parameter not permitted");
+        return Reflect.defineProperty(target, property, descriptor);
+      },
+      deleteProperty: function(target, property) {
+        p.seal().blame("Access to sealed parameter not permitted");
+        return Reflect.deleteProperty(target, property);
+      },
+      getOwnPropertyDescriptor: function(target, prop) {
+        p.seal().blame("Access to sealed parameter not permitted");
+        return Reflect.getOwnPropertyDescriptor(target, prop);
+      },
+      has: function(target, prop) {
+        p.seal().blame("Access to sealed parameter not permitted");
+        return Reflect.has(target, prop);
+      },
+      isExtensible: function(target) {
+        p.seal().blame("Access to sealed parameter not permitted");
+        return Reflect.isExtensible(target);
+      },
+      preventExtensions: function(target) {
+        p.seal().blame("Access to sealed parameter not permitted");
+        return Reflect.preventExtensions(target);
+      },
+      setPrototypeOf: function(target, prototype) {
+        p.seal().blame("Access to sealed parameter not permitted");
+        return Reflect.setPrototypeOf(target, prototype);
       }
     });
     BoundTypeVariable.globalStorage.set(sealed, token);
